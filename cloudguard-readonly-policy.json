@@ -1,0 +1,42 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Dome9ReadOnly",
+            "Action": [
+                "cognito-identity:DescribeIdentityPool",
+                "cognito-idp:DescribeUserPool",
+                "cognito-idp:DescribeRiskConfiguration",
+                "dynamodb:ListTagsOfResource",
+                "ec2:SearchTransitGatewayRoutes",
+                "elasticfilesystem:Describe*",
+                "elasticache:ListTagsForResource",
+                "es:ListTags",
+                "eks:DescribeNodegroup",
+                "eks:ListNodegroups",
+                "glue:GetSecurityConfigurations",
+                "kinesis:List*",
+                "kinesis:Describe*",
+                "kinesisvideo:Describe*",
+                "kinesisvideo:List*",
+                "logs:Get*",
+                "logs:FilterLogEvents",
+                "mq:DescribeBroker",
+                "mq:ListBrokers",
+                "s3:List*",
+                "secretsmanager:DescribeSecret",
+                "sns:ListSubscriptions",
+                "sns:ListTagsForResource",
+                "states:DescribeStateMachine",
+                "transcribe:Get*",
+                "transcribe:List*",
+                "translate:GetTerminology",
+                "waf-regional:ListResourcesForWebACL",
+                "wafv2:ListWebACLs",
+                "wafv2:ListResourcesForWebACL"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
