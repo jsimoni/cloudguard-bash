@@ -29,7 +29,7 @@ do
 
     eval $(awscredswrap --role-arn arn:aws:iam::$account:role/iammaster_role --role-session-name jsimoni-iammaster)
 
-    ACTION="createX"
+    ACTION="create"
     if [ $ACTION == "create" ]; then
       aws iam create-role --role-name cloudguard_connect_role --assume-role-policy-document file://trust-policy.json
       aws iam create-policy --policy-name CloudGuard-readonly-policy --policy-document file://cloudguard-readonly-policy.json
