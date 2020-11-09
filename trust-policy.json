@@ -9,7 +9,7 @@
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "sts:ExternalId": "${var.external_id}"
+          "sts:ExternalId": "pll@lmc8UT7mAgrBo+qsu0xI"
         }
       }
     }

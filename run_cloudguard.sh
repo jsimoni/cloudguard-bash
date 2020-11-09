@@ -21,8 +21,8 @@ eval $(awscredswrap --role-arn arn:aws:iam::569715827492:role/iammaster_role --r
 
 for account in $(aws organizations list-accounts | jq -r '.Accounts[] | select(.Status == "ACTIVE") | .Id')
 do
-  if [ $account == "657155003434" ]; then
-  echo -e $account
+#  if [ $account == "657155003434" ]; then
+    #echo -e $account
     export AWS_ACCESS_KEY_ID=$ACCESSKEY
     export AWS_SECRET_ACCESS_KEY=$SECRETKEY
     export AWS_SESSION_TOKEN=$SESSIONTOKEN
@@ -31,6 +31,7 @@ do
 
     ACTION="create"
     if [ $ACTION == "create" ]; then
+      echo $account
       aws iam create-role --role-name cloudguard_connect_role --assume-role-policy-document file://trust-policy.json
       aws iam create-policy --policy-name CloudGuard-readonly-policy --policy-document file://cloudguard-readonly-policy.json
       aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/SecurityAudit --role-name cloudguard_connect_role
@@ -43,5 +44,5 @@ do
       aws iam delete-policy --policy-arn arn:aws:iam::$account:policy/CloudGuard-readonly-policy
       aws iam delete-role --role-name cloudguard_connect_role
     fi
-  fi
+#  fi
 done
